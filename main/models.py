@@ -24,7 +24,7 @@ class Habit(models.Model):
     related = models.ForeignKey('self', on_delete=models.SET_NULL, verbose_name='связанная привычка', **NULLABLE)
     period = models.CharField(max_length=20, choices=periods, default='daily', verbose_name='период', **NULLABLE)
     award = models.CharField(max_length=255, verbose_name='вознаграждение', **NULLABLE)
-    run_time = models.IntegerField(default=0, verbose_name='Время выполнения')
+    run_time = models.IntegerField(default=0, verbose_name='время выполнения')
     public = models.BooleanField(default=True, verbose_name='опубликовано')
 
     def __str__(self):
