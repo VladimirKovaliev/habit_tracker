@@ -1,4 +1,5 @@
 from django.db import models
+from rest_framework.exceptions import ValidationError
 
 from config import settings
 
@@ -29,6 +30,12 @@ class Habit(models.Model):
 
     def __str__(self):
         return f'habit, owner:{self.owner}'
+
+    def clean(self):
+        if self.period not in dict(periods).keys():
+            raise ValidationError(
+                {'period': 'Выберите доступный период: daily, weekly'}
+            )
 
     class Meta:
         verbose_name = 'Привычка'
