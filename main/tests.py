@@ -11,9 +11,10 @@ class HabitTestCase(APITestCase):
     def setUp(self) -> None:
         self.client = APIClient()
         self.user = User.objects.create(
-            email='base@mail.ru',
+            email='te322st@tes4t.ru',
             password='2344'
         )
+        self.user.save()
         self.client.force_authenticate(user=self.user)
 
     def test_create_habit(self):

@@ -18,4 +18,4 @@ def send_message():
         if time_habit.time().hour == datetime.now().time().hour and \
                 time_habit.time().minute == datetime.now().time().minute:
             message = f'Не забудьте о своей привычке: "{habit.action}". Время: {habit.time}, место: {habit.place}'
-            my_bot.send_message(chat_id=User.telegram_id, text=message)
+            my_bot.send_message(chat_id=habit.user.telegram_id, text=message)
